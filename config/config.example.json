@@ -1,0 +1,42 @@
+{
+  "name": "data-farm",
+  "description": "Data tools across equivalent 1C bases",
+  "groupBy": "base",
+  "reference": "data_ut",
+  "compatibility": {
+    "tools": "exact",
+    "schemas": "exact",
+    "version": "exact"
+  },
+  "onIncompatible": "hide",
+  "fanOut": {
+    "enabled": true,
+    "tools": [
+      "execute_query",
+      "validate_query",
+      "get_metadata_structure"
+    ],
+    "maxConcurrency": 4,
+    "timeoutMs": 30000
+  },
+  "bases": [
+    {
+      "name": "data_ut",
+      "value": "ut",
+      "url": "http://onec-ws:8080/ut_kz",
+      "username": "<service user>",
+      "password": "<password>",
+      "serviceRoot": "mcp",
+      "maxConcurrent": 4
+    },
+    {
+      "name": "data_ut_sebestoimost",
+      "value": "cost",
+      "url": "http://onec-ws:8080/ut_sebestoimost",
+      "username": "<service user>",
+      "password": "<password>",
+      "serviceRoot": "mcp",
+      "maxConcurrent": 2
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "admin-farm",
+  "description": "Administration tools across 1C bases via APISIX",
+  "groupBy": "base",
+  "reference": "data_rt_test",
+  "compatibility": {
+    "tools": "exact",
+    "schemas": "exact",
+    "version": "exact"
+  },
+  "onIncompatible": "hide",
+  "fanOut": {
+    "enabled": true,
+    "tools": [
+      "get_scheduled_jobs"
+    ],
+    "maxConcurrency": 4,
+    "timeoutMs": 30000
+  },
+  "toolsEnabled": [
+    "get_scheduled_jobs",
+    "run_scheduled_job"
+  ],
+  "bases": [
+    {
+      "name": "data_rt_test",
+      "value": "test",
+      "rpcUrl": "https://gateway.example.com/admin/rpc",
+      "headers": {
+        "X-API-Key": "<apisix admin consumer key>"
+      },
+      "maxConcurrent": 2
+    },
+    {
+      "name": "admin_forum",
+      "value": "forum",
+      "rpcUrl": "https://gateway.example.com/admin/forum/rpc",
+      "headers": {
+        "X-API-Key": "<apisix admin consumer key>"
+      },
+      "maxConcurrent": 2
+    }
+  ]
+}

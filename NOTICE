@@ -1,0 +1,17 @@
+# NOTICE
+
+`mcp-multiplexer` is an independent implementation.
+
+The strict multiplexer idea, the `base` selector, and part of the configuration
+vocabulary were informed by:
+
+- **router-1c-mcp** — https://github.com/Regsorm/router-1c-mcp (MIT).
+  Its tool-catalog/matrix design and `bases.json` format were used as a reference.
+  This project is not a fork and does not copy its Rust source.
+- **MCPHub** — https://github.com/samanhappy/mcphub (Apache-2.0).
+  Groups, namespacing and Smart Routing were used as the integration context.
+- **reaatech/mcp-gateway** — https://github.com/reaatech/mcp-gateway (MIT).
+  Its `all-wait` fan-out vocabulary informed the optional fan-out result shape.
+
+No third-party source code is vendored here. All code in this repository is
+licensed under the MIT license in `LICENSE`.
